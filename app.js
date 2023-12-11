@@ -5,6 +5,7 @@ const cors = require("cors");
 const imageAccueil = require("./modules/imageAccueil")
 const inscription = require("./modules/inscription")
 const connexion = require("./modules/connexion")
+const test = require("./modules/test")
 
 app.use(express.json());
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 app.use("/imageAccueil", imageAccueil);
 app.use("/inscription", inscription)
 app.use("/connexion", connexion);
+app.use("/test", test);
 
 app.listen(port, () => {
     console.log(`Server is running on port http://127.0.0.1:${port}`);
