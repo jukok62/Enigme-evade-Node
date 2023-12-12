@@ -5,7 +5,7 @@ const reservationDomicile = require ("../services/reservationDomicile")
 
 router.post('/', (req,res) => {
     let data = req.body;
-    console.log("dat : " + data);
+    console.log("date : " + data);
     reservationDomicile.newResaDom(data).then(result => {
         res.status(201);
         res.json(data);
@@ -21,7 +21,7 @@ router.get('/', (req,res) => {
         res.json(result);
     }).catch(err => {
         console.log(err);
-        res.json ({"message" : "votre ajout ne c'est pas bien passé"})
+        res.json ({"message" : "votre ajout ne s'est pas bien passé"})
     })
 })
 
