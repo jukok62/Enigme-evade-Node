@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const conn = require('../services/database');
-const reservationService = require('../services/reservationsite');
+const reservationService = require("../services/sitenom")
 
 router.post('/', (req, res) => {
     let data = req.body;
