@@ -5,6 +5,9 @@ const cors = require("cors");
 const imageAccueil = require("./modules/imageAccueil")
 const inscription = require("./modules/inscription")
 const connexion = require("./modules/connexion")
+const test = require("./modules/test")
+const escape = require("./modules/escape");
+const imagesDetails = require("./modules/imageDetails");
 const contact = require("./modules/contact")
 const bodyParser = require('body-parser');
 // const { sendEmail } = require('./services/contactService');
@@ -22,7 +25,9 @@ app.get("/", (req, res) => {
 app.use("/imageAccueil", imageAccueil);
 app.use("/inscription", inscription)
 app.use("/connexion", connexion);
-
+app.use("/test", test);
+app.use('/', escape);
+app.use('/', imagesDetails);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

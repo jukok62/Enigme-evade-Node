@@ -13,5 +13,16 @@ router.post('/contact', async (req, res) => {
       res.status(500).send('Erreur lors de l\'envoi de l\'e-mail');
     }
   });
+
+  router.post('/devis', async (req, res) => {
+    try {
+      await contactService.sendEmailDevis(req.body);
+      console.log('Devis soumis avec succès!');
+      res.sendStatus(200);
+    } catch (error) {
+      console.error('Erreur lors de la soumission du devis', error);
+      res.status(500).send('Erreur lors de l\'envoi de l\'e-mail');
+    }
+  });
   
   module.exports = router;
