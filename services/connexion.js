@@ -2,7 +2,7 @@ const conn = require("./database")
 
 const getUserByEmail = (email) => {
     return new Promise((resolve, reject) => {
-        const sql = `SELECT  user_email, user_password FROM user WHERE user_email = ? ;`;
+        const sql = `SELECT  * FROM user WHERE user_email = ? ;`;
       conn.query(sql, [email], (error, results) => {
         if (error) {
           console.error('Erreur lors de la récupération de l\'utilisateur par email:', error);
