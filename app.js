@@ -32,21 +32,8 @@ app.use("/connexion", connexion);
 app.use("/test", test);
 app.use('/', escape);
 app.use('/', imagesDetails);
-
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(contact);
-
-// app.post('/submit', async (req, res) => {
-//   try {
-//     await sendEmail(req.body);
-//     console.log('Formulaire soumis avec succès!');
-//     res.sendStatus(200);
-//   } catch (error) {
-//     console.error('Erreur lors de la soumission du formulaire', error);
-//     res.status(500).send('Erreur lors de l\'envoi de l\'e-mail');
-//   }
-// });
 app.use("/reservationDomicile", reservationDomicile);
 app.use("/reservation", reservation);
 app.use("/nomsite", nomsite);
