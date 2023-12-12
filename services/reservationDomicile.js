@@ -17,7 +17,8 @@ const salleDom = () => {
     return new Promise ((resolve,reject) => {
         let sql = `SELECT d.domicile_id, d.dom_nom , r.dom_id
         FROM domicile d
-        LEFT JOIN reservation r ON r.dom_id = d.domicile_id`
+        LEFT JOIN reservation r ON r.dom_id = d.domicile_id
+        GROUP BY d.domicile_id, d.dom_nom , r.dom_id`
          let query = conn.query(sql, (err, result, field) => {
              if (err) {
                 return reject(err);
