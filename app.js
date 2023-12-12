@@ -11,6 +11,10 @@ const imagesDetails = require("./modules/imageDetails");
 const contact = require("./modules/contact")
 const bodyParser = require('body-parser');
 // const { sendEmail } = require('./services/contactService');
+const reservationDomicile = require ("./modules/reservationDomicile")
+const reservation = require("./modules/reservationmodule")
+const nomsite = require("./modules/NomSite")
+
 
 app.use(express.json());
 
@@ -43,6 +47,12 @@ app.use(contact);
 //     res.status(500).send('Erreur lors de l\'envoi de l\'e-mail');
 //   }
 // });
+app.use("/reservationDomicile", reservationDomicile);
+app.use("/reservation", reservation);
+app.use("/nomsite", nomsite);
+
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port http://127.0.0.1:${port}`);
