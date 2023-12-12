@@ -8,14 +8,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmaildevis = (formData) => {
-  const { nom_devis, prenom_devis, email_devis, tel_devis, message_devis } = formData;
+const sendEmailContact = (formData) => {
+  const { nom_contact, prenom_contact, email_contact, tel_contact, message_contact} = formData;
 
   const mailOptions = {
-    from: email_devis,
+    from: email_contact,
     to: 'node.escape.game@gmail.com',
-    subject: 'Nouveau formulaire de devis soumis',
-    text: `Nom: ${nom_devis}\nPrénom: ${prenom_devis}\nE-mail: ${email_devis}\nTéléphone: ${tel_devis}\nMessage: ${message_devis}\n`,
+    subject: 'Nouveau formulaire de contact soumis',
+    text: `Nom: ${nom_contact}\nPrénom: ${prenom_contact}\nE-mail: ${email_contact}\nTéléphone: ${tel_contact}\nMessage: ${message_contact}\n`,
   };
 
   return new Promise((resolve, reject) => {
@@ -51,6 +51,6 @@ const sendEmailDevis = (formData) => {
 };
 
 module.exports = {
-  sendEmaildevis,
+  sendEmailContact,
   sendEmailDevis
 };
