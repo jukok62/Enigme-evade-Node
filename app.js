@@ -38,7 +38,6 @@ app.use(contact);
 app.use("/reservationDomicile", reservationDomicile);
 app.use("/reservation", reservation);
 app.use("/nomsite", nomsite);
-app.use("/monCompte", monCompte);
 
 
 
