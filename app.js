@@ -7,6 +7,8 @@ const inscription = require("./modules/inscription")
 const connexion = require("./modules/connexion")
 const test = require("./modules/test")
 const reservationDomicile = require ("./modules/reservationDomicile")
+const reservation = require("./modules/reservationmodule")
+
 
 app.use(express.json());
 
@@ -23,6 +25,8 @@ app.use("/inscription", inscription)
 app.use("/connexion", connexion);
 app.use("/test", test);
 app.use("/reservationDomicile", reservationDomicile);
+app.use("/reservation", reservation);
+
 
 app.listen(port, () => {
     console.log(`Server is running on port http://127.0.0.1:${port}`);
