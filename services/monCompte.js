@@ -56,9 +56,23 @@ const fetchUserByEmail = (email) => {
         });
     });
 };
+const deleteUser = (email) => {
+    return new Promise((resolve, reject) => {
+        let sql = `DELETE FROM user
+        WHERE user_email =  '${email}'`;
+        let query = conn.query(sql, (err,result,field) => {
+            if(err){
+                return reject(err);
+            }
+            resolve(result);
+        });
+    });
+};
+
 
 module.exports = {
     addModification,
     fetchUserByEmail,
-    fetchLastRes
+    fetchLastRes,
+    deleteUser
 }

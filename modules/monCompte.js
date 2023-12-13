@@ -26,6 +26,17 @@ router.get("/:email", async (req, res) => {
     })
 });
 
+router.delete("/:email", async (req, res) => {
+    monCompte.deleteUser(req.params.email)
+    .then(result => {
+        res.status(200).json(result[0]);
+    })
+    .catch(err => {
+        console.error("oops", err);
+        res.json({ "message ": "error" + err.sqlMessage });
+    })
+});
+
 
 
 router.patch('/:email', (req, res) => {
