@@ -15,6 +15,7 @@ const reservationDomicile = require ("./modules/reservationDomicile")
 const reservation = require("./modules/reservationmodule")
 const nomsite = require("./modules/NomSite")
 const monCompte = require ('./modules/monCompte')
+const tableausite = require ("./modules/TableauSite")
 
 
 app.use(express.json());
@@ -38,6 +39,7 @@ app.use(contact);
 app.use("/reservationDomicile", reservationDomicile);
 app.use("/reservation", reservation);
 app.use("/nomsite", nomsite);
+app.use("/tableausite", tableausite);
 
 
 
