@@ -37,8 +37,20 @@ router.get('/site', async (req, res) => {
       console.error("Oopsi...", err);
       res.status(500).json({ "Message": "Error " + err.message });
     }
-  });
+  })
 
+  router.put('/site/:id', async (req, res) => {
+    let data = req.body;
+    console.log('Received data:', data);
+
+    try {
+        const escapeSite = await escapeService.updateEscapeSite(data);
+        res.send(escapeSite);
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour des sites', error);
+        res.status(500).send('Erreur lors de la mise à jour des sites');
+    }
+});
   router.get('/domicile', async (req, res) => {
     try {
       const escapeSite = await escapeService.fetchEscapeDomicile();
@@ -63,6 +75,19 @@ router.get('/site', async (req, res) => {
       res.status(500).json({ "Message": "Error " + err.message });
     }
    });
+
+   router.put('/domicile/:id', async (req, res) => {
+    let data = req.body;
+    console.log('Received data:', data);
+
+    try {
+        const escapeDom = await escapeService.updateEscapeDomicile(data);
+        res.send(escapeDom);
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour des sites', error);
+        res.status(500).send('Erreur lors de la mise à jour des sites');
+    }
+});
   
 
 

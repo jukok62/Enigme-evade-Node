@@ -13,4 +13,22 @@ router.get("/:email", async (req, res) =>{
     })
 });
 
+router.get('/', async (req, res) => {
+    try {
+      const reservations = await test.fetchAllResa();
+      const formattedReservations = reservations.map(row => {
+        return {
+          res_dateHeure: row.res_dateHeure.toISOString(),
+        };
+      });
+      console.log(formattedReservations);
+      // Send the response as JSON
+      res.json(formattedReservations);
+    } catch (error) {
+      console.error('Error fetching reservation dates:', error);
+      // Send an error response if there's an issue
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
 module.exports = router;
